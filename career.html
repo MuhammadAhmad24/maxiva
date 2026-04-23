@@ -29,7 +29,7 @@
                 ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
         }(window, document);
     </script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
     <style>
         .w-background-video {
@@ -692,7 +692,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/contact-us" class="nav-link last-nav-link w-inline-block">
+                                <a href="./contact.html" class="nav-link last-nav-link w-inline-block">
                                     <div>contact us</div>
                                     <div class="nav-arrow">
                                         <div class="nav-icon-ticker">
@@ -936,10 +936,103 @@
         </div>
     </section>
 
+    <div class="floating-icons">
+        <button id="themeToggle"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor"
+                stroke-linecap="round" viewBox="0 0 32 32">
+                <clipPath id="skiper-btn-2">
+                    <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z"
+                        style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;"></path>
+                </clipPath>
+                <g clip-path="url(#skiper-btn-2)">
+                    <circle cx="16" cy="16" r="8"></circle>
+                    <g stroke="currentColor" stroke-width="1.5" opacity="1"
+                        style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;">
+                        <path d="M16 5.5v-4"></path>
+                        <path d="M16 30.5v-4"></path>
+                        <path d="M1.5 16h4"></path>
+                        <path d="M26.5 16h4"></path>
+                        <path d="m23.4 8.6 2.8-2.8"></path>
+                        <path d="m5.7 26.3 2.9-2.9"></path>
+                        <path d="m5.8 5.8 2.8 2.8"></path>
+                        <path d="m23.4 23.4 2.9 2.9"></path>
+                    </g>
+                </g>
+            </svg></button>
+
+        <button id="music">music</button>
+        <audio id="bgMusic" src="./assets/alexzavesa-dance-playful-night-510786.mp3"></audio>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const btn = document.getElementById("music");
+                const audio = document.getElementById("bgMusic");
+
+                let isPlaying = false;
+
+                btn.addEventListener("click", () => {
+
+                    if (!isPlaying) {
+                        audio.play();
+                        btn.textContent = "Pause Music";
+                        isPlaying = true;
+                    } else {
+                        audio.pause();
+                        btn.textContent = "Play Music";
+                        isPlaying = false;
+                    }
+
+                });
+
+            });
+        </script>
+
+
+    </div>
+
+    <audio id="clickSound" src="./assets/mouse-click-sounc.mp3" preload="auto"></audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const clickSound = document.getElementById("clickSound");
+
+            document.addEventListener("click", () => {
+                clickSound.currentTime = 0; 
+                clickSound.play();
+            });
+
+        });
+    </script>
+
+    <script>
+        const btn = document.getElementById("themeToggle");
+
+        // load saved theme
+        const savedTheme = localStorage.getItem("site-theme");
+
+        if (savedTheme === "white") {
+            document.body.classList.add("white-theme");
+        } else {
+            document.body.classList.add("dark-theme");
+        }
+
+        // toggle on click
+        btn.addEventListener("click", () => {
+            if (document.body.classList.contains("dark-theme")) {
+                document.body.classList.remove("dark-theme");
+                document.body.classList.add("white-theme");
+                localStorage.setItem("site-theme", "white");
+            } else {
+                document.body.classList.remove("white-theme");
+                document.body.classList.add("dark-theme");
+                localStorage.setItem("site-theme", "dark");
+            }
+        });
+    </script>
+
     <section data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6a" class="footer">
         <div class="w-layout-blockcontainer default-container footer-container w-container">
             <div class="footer-first-block">
-                <a data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6d" href="/contact-us"
+                <a data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6d" href="./contact.html"
                     class="primary-button footer-cta-button w-inline-block">
                     <div class="footer-cta-text">GET IN TOUCH</div>
                     <div class="footer-cta-arrow-block">
@@ -967,10 +1060,10 @@
             </div>
             <div class="footer-second-block">
                 <div class="footer-company-profile-wrapper">
-                    <div class="fod-footer-text">Fond OF DesignS</div>
+                    <div class="fod-footer-text">Maxiva</div>
                     <div class="copyright-text">
                         Copyrights ©<span class="copyright-year">2026</span>
-                        All Right Reserved NEthing Design ( FOD ) Studio
+                        All Right Reserved
                     </div>
                     <div class="social-list-wrapper">
                         <a href="https://www.linkedin.com/company/fond-of-designs/" target="_blank"

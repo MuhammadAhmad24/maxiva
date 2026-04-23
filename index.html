@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Maxiva</title>
 
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./assets/styles/index.css">
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -282,17 +282,447 @@
 
         .brands-section {
             padding-top: 0;
+            min-height: 100vh;
         }
     </style>
 
-    <style>
-        .pin-section {
+    <!-- <style>
+        .text-pin-section {
             position: relative;
             height: 100vh;
             background: #fff;
             overflow: hidden;
             display: flex;
             align-items: center;
+        }
+
+        .track {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .moving-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: clamp(52px, 9vw, 140px);
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            will-change: transform;
+        }
+
+        .char {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
+
+        .char.space {
+            width: 0.28em;
+        }
+    </style> -->
+
+    <style>
+        .services-intro {
+            width: 100%;
+            min-height: 100vh;
+            background: #000;
+            padding: 40px 32px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-intro__inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .services-intro__left {
+            flex: 1 1 auto;
+            max-width: 860px;
+        }
+
+        .intro-line-wrap {
+            overflow: hidden;
+        }
+
+        .intro-line {
+            font-size: clamp(58px, 10vw, 132px);
+            line-height: 0.92;
+            font-weight: 500;
+            letter-spacing: -0.05em;
+            transform: translateY(120px);
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        .intro-line-2 {
+            margin-top: 12px;
+        }
+
+        .intro-bottom {
+            margin-top: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 450px;
+        }
+
+        .learn-more,
+        .arrow {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .intro-divider {
+            margin-top: 14px;
+            width: 100%;
+            max-width: 450px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.25);
+            transform: scaleX(0);
+            transform-origin: left center;
+            will-change: transform;
+        }
+
+        .services-intro__right {
+            flex: 0 0 320px;
+            padding-top: 42px;
+        }
+
+        .summary-block {
+            display: flex;
+            gap: 32px;
+            justify-content: flex-end;
+        }
+
+        .summary-title {
+            white-space: nowrap;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .summary-block ul li {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 18px;
+            line-height: 1.55;
+            font-weight: 600;
+        }
+
+        /* =========================
+   CARDS PIN SECTION
+========================= */
+        .cards-pin-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+        }
+
+        .cards-stage {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            overflow: hidden;
+        }
+
+        .card-services {
+            position: absolute;
+            width: 315px;
+            min-height: 395px;
+            padding: 34px 20px 26px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 28px;
+            background: #070707;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        .card-services h3 {
+            margin-top: 36px;
+            font-size: 28px;
+            line-height: 1.05;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            color: #f2f2f2;
+        }
+
+        .card-services p {
+            margin-top: 18px;
+            font-size: 17px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 600;
+        }
+
+        .card-icon {
+            font-size: 62px;
+            line-height: 1;
+            color: #ff5a00;
+        }
+
+        /* final staggered stacked layout */
+        .card-1 {
+            left: 32px;
+            top: 110px;
+        }
+
+        .card-2 {
+            left: 360px;
+            top: 110px;
+        }
+
+        .card-3 {
+            left: 688px;
+            top: 110px;
+        }
+
+        .card-4 {
+            left: 1016px;
+            top: 110px;
+        }
+
+        /* =========================
+   EXTRA SPACE
+========================= */
+        .after-space {
+            height: 100vh;
+            background: #000;
+        }
+
+        /* =========================
+   RESPONSIVE
+========================= */
+        @media (max-width: 1399px) {
+            .cards-stage {
+                max-width: 1180px;
+            }
+
+            .card-services {
+                width: 280px;
+                min-height: 370px;
+            }
+
+            .card-1 {
+                left: 24px;
+                top: 120px;
+            }
+
+            .card-2 {
+                left: 316px;
+                top: 120px;
+            }
+
+            .card-3 {
+                left: 608px;
+                top: 120px;
+            }
+
+            .card-4 {
+                left: 900px;
+                top: 120px;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .services-intro__inner {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .services-intro__right {
+                flex: unset;
+                padding-top: 0;
+            }
+
+            .summary-block {
+                justify-content: flex-start;
+            }
+
+            .cards-stage {
+                max-width: 100%;
+            }
+
+            .card-services {
+                width: 250px;
+                min-height: 350px;
+                padding: 28px 18px 24px;
+            }
+
+            .card-services h3 {
+                font-size: 24px;
+            }
+
+            .card-services p {
+                font-size: 15px;
+            }
+
+            .card-1 {
+                left: 20px;
+                top: 140px;
+            }
+
+            .card-2 {
+                left: 280px;
+                top: 140px;
+            }
+
+            .card-3 {
+                left: 540px;
+                top: 140px;
+            }
+
+            .card-4 {
+                left: 800px;
+                top: 140px;
+            }
+        }
+
+        /* =========================
+   STATIC LAYOUT BELOW 1025px
+========================= */
+        @media (max-width: 1024px) {
+            .services-intro {
+                min-height: auto;
+                padding: 80px 20px 40px;
+                align-items: flex-start;
+            }
+
+            .services-intro__inner {
+                display: block;
+            }
+
+            .services-intro__left {
+                max-width: 100%;
+            }
+
+            .intro-bottom,
+            .services-intro__right {
+                display: none;
+            }
+
+            .intro-divider {
+                display: none;
+            }
+
+            .intro-line {
+                transform: none;
+                opacity: 1;
+            }
+
+            .intro-line-2 {
+                margin-top: 8px;
+            }
+
+            .cards-pin-section {
+                height: auto;
+                padding: 0 20px 60px;
+            }
+
+            .cards-stage {
+                height: auto;
+                padding: 0;
+                overflow: visible;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+                max-width: 100%;
+            }
+
+            .card-services {
+                position: relative;
+                left: auto !important;
+                top: auto !important;
+                width: 100%;
+                min-height: 320px;
+                opacity: 1;
+                transform: none !important;
+            }
+
+            .after-space {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .services-intro {
+                padding: 72px 16px 32px;
+            }
+
+            .intro-line {
+                font-size: clamp(44px, 11vw, 58px);
+                line-height: 0.95;
+            }
+
+            .cards-pin-section {
+                padding: 0 16px 40px;
+            }
+
+            .cards-stage {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .card-services {
+                min-height: auto;
+                padding: 28px 18px 24px;
+            }
+
+            .card-services h3 {
+                font-size: 24px;
+                margin-top: 28px;
+            }
+
+            .card-services p {
+                font-size: 15px;
+            }
+
+            .card-icon {
+                font-size: 54px;
+            }
+        }
+
+        /* .text-pin-wrap {
+    position: relative;
+    height: 220vh;
+    background: #fff;
+    overflow: hidden;
+}
+
+.text-pin-section {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    will-change: transform, opacity;
+} */
+
+        .text-pin-wrap {
+            position: relative;
+            height: 100vh;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .text-pin-section {
+            position: relative;
+            height: 100vh;
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            will-change: transform, opacity;
         }
 
         .track {
@@ -536,6 +966,79 @@
     </section>
 
 
+    <section class="services-intro">
+        <div class="services-intro__inner">
+            <div class="services-intro__left">
+                <div class="intro-line-wrap">
+                    <h2 class="intro-line intro-line-1">Services</h2>
+                </div>
+                <div class="intro-line-wrap">
+                    <h2 class="intro-line intro-line-2">We provide</h2>
+                </div>
+
+                <div class="intro-bottom">
+                    <a href="#" class="learn-more">Learn More</a>
+                    <span class="arrow">→</span>
+                </div>
+
+                <div class="intro-divider"></div>
+            </div>
+
+            <div class="services-intro__right">
+                <div class="summary-block">
+                    <span class="summary-title">[04] Summary:</span>
+                    <ul>
+                        <li>Branding</li>
+                        <li>UI/UX Design</li>
+                        <li>Development</li>
+                        <li>Packaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards-pin-section">
+        <div class="cards-stage">
+            <div class="card-services card-1">
+                <div class="card-icon">✒</div>
+                <h3>Logo<br>Design</h3>
+                <p>
+                    We make logos that feel right. Not just good-looking but meaningful,
+                    memorable and built to last for your brand.
+                </p>
+            </div>
+
+            <div class="card-services card-2">
+                <div class="card-icon">♛</div>
+                <h3>Brand Identity<br>Development</h3>
+                <p>
+                    A brand is more than a logo. We help you show up the same way
+                    everywhere - Online, offline and everything between.
+                </p>
+            </div>
+
+            <div class="card-services card-3">
+                <div class="card-icon">⊞</div>
+                <h3>Packaging<br>Design</h3>
+                <p>
+                    Good packaging tells a story before anyone reads a word. We design
+                    packs that stand out, feel great and connect.
+                </p>
+            </div>
+
+            <div class="card-services card-4">
+                <div class="card-icon">▣</div>
+                <h3>Website Design<br>& Development</h3>
+                <p>
+                    Your website should work hard and look good. We design sites that are
+                    easy to use and built to grow with you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
 
     <section class="brands-section">
         <div class="w-layout-blockcontainer brands-container w-container">
@@ -699,20 +1202,96 @@
         </div>
     </section>
 
-    <section class="pin-section">
+    <!-- <section class="text-pin-section">
         <div class="track">
             <div class="moving-text" data-text="So, are you ready to Standout?">
                 So, are you ready to Standout?
             </div>
         </div>
+    </section> -->
+
+    <section class="text-pin-wrap">
+        <div class="text-pin-section">
+            <div class="track">
+                <div class="moving-text" data-text="So, are you ready to Standout?">
+                    So, are you ready to Standout?
+                </div>
+            </div>
+        </div>
     </section>
 
+    <div class="floating-icons">
+        <button id="themeToggle"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor"
+                stroke-linecap="round" viewBox="0 0 32 32">
+                <clipPath id="skiper-btn-2">
+                    <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z"
+                        style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;"></path>
+                </clipPath>
+                <g clip-path="url(#skiper-btn-2)">
+                    <circle cx="16" cy="16" r="8"></circle>
+                    <g stroke="currentColor" stroke-width="1.5" opacity="1"
+                        style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;">
+                        <path d="M16 5.5v-4"></path>
+                        <path d="M16 30.5v-4"></path>
+                        <path d="M1.5 16h4"></path>
+                        <path d="M26.5 16h4"></path>
+                        <path d="m23.4 8.6 2.8-2.8"></path>
+                        <path d="m5.7 26.3 2.9-2.9"></path>
+                        <path d="m5.8 5.8 2.8 2.8"></path>
+                        <path d="m23.4 23.4 2.9 2.9"></path>
+                    </g>
+                </g>
+            </svg></button>
+
+        <button id="music">music</button>
+        <audio id="bgMusic" src="./assets/alexzavesa-dance-playful-night-510786.mp3"></audio>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const btn = document.getElementById("music");
+                const audio = document.getElementById("bgMusic");
+
+                let isPlaying = false;
+
+                btn.addEventListener("click", () => {
+
+                    if (!isPlaying) {
+                        audio.play();
+                        btn.textContent = "Pause Music";
+                        isPlaying = true;
+                    } else {
+                        audio.pause();
+                        btn.textContent = "Play Music";
+                        isPlaying = false;
+                    }
+
+                });
+
+            });
+        </script>
 
 
-    <section data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6a" class="footer">
+    </div>
+
+    <audio id="clickSound" src="./assets/mouse-click-sounc.mp3" preload="auto"></audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const clickSound = document.getElementById("clickSound");
+
+            document.addEventListener("click", () => {
+                clickSound.currentTime = 0; 
+                clickSound.play();
+            });
+
+        });
+    </script>
+
+
+    <section class="footer">
         <div class="w-layout-blockcontainer default-container footer-container w-container">
             <div class="footer-first-block">
-                <a data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6d" href="/contact-us"
+                <a data-w-id="c1f5592f-2b7b-0990-5525-4bc8bffa8e6d" href="./contact.html"
                     class="primary-button footer-cta-button w-inline-block">
                     <div class="footer-cta-text">GET IN TOUCH</div>
                     <div class="footer-cta-arrow-block">
@@ -740,10 +1319,10 @@
             </div>
             <div class="footer-second-block">
                 <div class="footer-company-profile-wrapper">
-                    <div class="fod-footer-text">Fond OF DesignS</div>
+                    <div class="fod-footer-text">Maxiva</div>
                     <div class="copyright-text">
                         Copyrights ©<span class="copyright-year">2026</span>
-                        All Right Reserved NEthing Design ( FOD ) Studio
+                        All Right Reserved
                     </div>
                     <div class="social-list-wrapper">
                         <a href="https://www.linkedin.com/company/fond-of-designs/" target="_blank"
@@ -803,9 +1382,6 @@
             </div>
         </div>
     </section>
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66a9115885e96a3e9e2d5d52"
-        type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
     <!-- GSAP Core -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 
@@ -817,635 +1393,13 @@
     </script>
     <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
-    <script <script>
-        gsap.registerPlugin(ScrollTrigger);
 
-        const lenis = new Lenis();
 
-        lenis.on('scroll', (e) => {
-            ScrollTrigger.update();
-        }
-        );
 
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        }
-        );
-
-        gsap.ticker.lagSmoothing(0);
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", (event) => {
-            gsap.registerPlugin(ScrollTrigger);
-
-            lenis.on('scroll', function () {
-                if (lenis.animatedScroll > 80) {
-                    gsap.to('.brand', {
-                        opacity: 0,
-                        duration: 0.4,
-                        onComplete: function () {
-                            document.querySelector('.brand').style.visibility = 'hidden';
-                        }
-                    });
-                } else {
-                    gsap.to('.brand', {
-                        opacity: 1,
-                        duration: 0.4,
-                        onStart: function () {
-                            document.querySelector('.brand').style.visibility = 'visible';
-                        }
-                    });
-                }
-            });
-        }
-        )
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const yearEl = document.querySelector(".copyright-year");
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
-            }
-
-            const columns = document.querySelectorAll(".sitemap-column");
-
-            const naturalHeights = [];
-            columns.forEach(function (column) {
-                const wrapper = column.querySelector(".sitemap-link-wrapper");
-                if (wrapper) {
-                    naturalHeights.push(wrapper.scrollHeight);
-                } else {
-                    naturalHeights.push(0);
-                }
-            });
-
-            function initMobile() {
-                columns.forEach(function (column) {
-                    const wrapper = column.querySelector(".sitemap-link-wrapper");
-                    if (wrapper) {
-                        wrapper.style.overflow = "hidden";
-                        wrapper.style.height = "0px";
-                        wrapper.style.paddingTop = "0";
-                        wrapper.style.paddingBottom = "0";
-                        wrapper.style.transition = "height 0.35s ease, padding 0.35s ease";
-                    }
-                    const svg = column.querySelector(".is-footer-accordian");
-                    if (svg) {
-                        const secondLine = svg.querySelectorAll("line")[1];
-                        if (secondLine) {
-                            secondLine.style.transition = "opacity 0.35s ease";
-                            secondLine.style.opacity = "1";
-                        }
-                    }
-                    column.classList.remove("is-open");
-                });
-            }
-
-            function destroyMobile() {
-                columns.forEach(function (column) {
-                    const wrapper = column.querySelector(".sitemap-link-wrapper");
-                    if (wrapper) {
-                        wrapper.style.overflow = "";
-                        wrapper.style.height = "";
-                        wrapper.style.paddingTop = "";
-                        wrapper.style.paddingBottom = "";
-                        wrapper.style.transition = "";
-                    }
-                    const svg = column.querySelector(".is-footer-accordian");
-                    if (svg) {
-                        const secondLine = svg.querySelectorAll("line")[1];
-                        if (secondLine) {
-                            secondLine.style.opacity = "";
-                            secondLine.style.transition = "";
-                        }
-                    }
-                    column.classList.remove("is-open");
-                });
-            }
-
-            function handleToggle(index) {
-                if (window.innerWidth > 991)
-                    return;
-
-                const column = columns[index];
-                const wrapper = column.querySelector(".sitemap-link-wrapper");
-                const svg = column.querySelector(".is-footer-accordian");
-                const secondLine = svg ? svg.querySelectorAll("line")[1] : null;
-                const isOpen = column.classList.contains("is-open");
-
-                columns.forEach(function (col, i) {
-                    const w = col.querySelector(".sitemap-link-wrapper");
-                    const s = col.querySelector(".is-footer-accordian");
-                    const sl = s ? s.querySelectorAll("line")[1] : null;
-                    if (col.classList.contains("is-open")) {
-                        col.classList.remove("is-open");
-                        if (w) {
-                            w.style.height = "0px";
-                            w.style.paddingTop = "0";
-                            w.style.paddingBottom = "0";
-                        }
-                        if (sl)
-                            sl.style.opacity = "1";
-                    }
-                });
-
-                if (!isOpen) {
-                    column.classList.add("is-open");
-                    if (wrapper) {
-                        wrapper.style.height = naturalHeights[index] + "px";
-                        wrapper.style.paddingTop = "1rem";
-                        wrapper.style.paddingBottom = "1rem";
-                    }
-                    if (secondLine)
-                        secondLine.style.opacity = "0";
-                }
-            }
-
-            columns.forEach(function (column, index) {
-                column.addEventListener("click", function () {
-                    handleToggle(index);
-                });
-            });
-
-            function handleResponsive() {
-                if (window.innerWidth <= 991) {
-                    initMobile();
-                } else {
-                    destroyMobile();
-                }
-            }
-
-            handleResponsive();
-            window.addEventListener("resize", handleResponsive);
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-    <script
-        src="https://cdn.prod.website-files.com/66a9115885e96a3e9e2d5d52/69889fada3138ce8142f1120_horizontal-scroll.txt"></script>
+    <script src="./assets/scripts/home.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", (event) => {
-            document.fonts.ready.then(() => {
-                gsap.registerPlugin(ScrollToPlugin);
-
-                if (window.scrollY > 80) {
-                    gsap.to('.header-button, .dropdown-toggle', {
-                        backgroundColor: "#EDECE6",
-                        color: "#3c2bff",
-                        borderColor: "#3c2bff",
-                        duration: 0.4
-                    });
-                } else {
-                    gsap.to('.header-button, .dropdown-toggle', {
-                        backgroundColor: "#3c2bff",
-                        color: "#EDECE6",
-                        borderColor: "#EDECE6",
-                        duration: 0.4
-                    });
-                }
-
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 80) {
-                        gsap.to('.header-button, .dropdown-toggle', {
-                            backgroundColor: "#EDECE6",
-                            color: "#3c2bff",
-                            borderColor: "#3c2bff",
-                            duration: 0.4
-                        });
-                    } else {
-                        gsap.to('.header-button, .dropdown-toggle', {
-                            backgroundColor: "#3c2bff",
-                            color: "#EDECE6",
-                            borderColor: "#EDECE6",
-                            duration: 0.4
-                        });
-                    }
-                });
-
-                const myText = new SplitType('.hero-heading');
-                const myPara = new SplitType('.hero-paragraph');
-
-                var heroTl = gsap.timeline({
-                    delay: 1.6
-                });
-
-                heroTl.fromTo(".hero-heading .char", {
-                    y: 196,
-                },
-                    {
-                        y: 0,
-                        ease: "power1.out",
-                        stagger: 0.1,
-                    }).fromTo(".hero-paragraph .line", {
-                        opacity: 0,
-                        y: 30,
-                    }, {
-                        y: 0,
-                        opacity: 1,
-                        ease: "power1.out",
-                        stagger: 0.1,
-                    }).fromTo(".hero-hover-link", {
-                        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
-                    }, {
-                        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                        duration: 0.8,
-                        ease: "power1.out"
-                    }, "<");
-
-                const footerText = new SplitType('.footer-text');
-
-                gsap.fromTo(".footer-text .char", {
-                    y: 188
-                }, {
-
-                    scrollTrigger: {
-                        trigger: ".footer-text",
-                        start: "top 80%",
-                    },
-                    y: 0,
-                    ease: "power1.out",
-                    stagger: 0.1,
-                });
-            }
-            );
-        }
-        );
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            gsap.registerPlugin(ScrollTrigger);
-
-            const firstRow = document.querySelectorAll(".brands-wrapper:not(.is-reverse-wrapper) .brand-rect");
-            const secondRow = document.querySelectorAll(".brands-wrapper.is-reverse-wrapper .brand-rect");
-
-            const firstRowLoop = horizontalLoop(firstRow, {
-                speed: 0.5,
-                repeat: -1
-            });
-            const secondRowLoop = horizontalLoop(secondRow, {
-                speed: 0.5,
-                repeat: -1,
-                reversed: true
-            });
-
-            const firstRowWrapper = document.querySelector(".brands-wrapper:not(.is-reverse-wrapper)");
-            const secondRowWrapper = document.querySelector(".brands-wrapper.is-reverse-wrapper");
-
-            firstRowWrapper.addEventListener('mouseenter', () => {
-                firstRowLoop.pause();
-            }
-            );
-
-            firstRowWrapper.addEventListener('mouseleave', () => {
-                firstRowLoop.resume();
-            }
-            );
-
-            secondRowWrapper.addEventListener('mouseenter', () => {
-                secondRowLoop.pause();
-            }
-            );
-
-            secondRowWrapper.addEventListener('mouseleave', () => {
-                secondRowLoop.resume();
-            }
-            );
-
-            ScrollTrigger.refresh();
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const heroArea = document.querySelector(".div-block-85");
-            const leftEye = document.querySelector(".div-block-86 .image-73");
-            const rightEye = document.querySelector(".div-block-86-copy .image-73");
-
-            if (!heroArea || !leftEye || !rightEye) return;
-
-            const maxMove = 8;
-
-            function moveEyes(e) {
-                const rect = heroArea.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-
-                const deltaX = e.clientX - centerX;
-                const deltaY = e.clientY - centerY;
-
-                const angle = Math.atan2(deltaY, deltaX);
-                const moveX = Math.cos(angle) * maxMove;
-                const moveY = Math.sin(angle) * maxMove;
-
-                leftEye.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                rightEye.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            }
-
-            function resetEyes() {
-                leftEye.style.transform = `translate(0, 0)`;
-                rightEye.style.transform = `translate(0, 0)`;
-            }
-
-            window.addEventListener("mousemove", moveEyes);
-            heroArea.addEventListener("mouseleave", resetEyes);
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggle = document.querySelector(".dropdown-toggle");
-            const menu = document.querySelector(".mega-menu-wrapper");
-            const closeBtn = document.querySelector(".close-menu-button");
-            const body = document.body;
-
-            if (!toggle || !menu) return;
-
-            function openMenu() {
-                menu.classList.add("w--open");
-                toggle.classList.add("is-active");
-                body.classList.add("menu-open");
-            }
-
-            function closeMenu() {
-                menu.classList.remove("w--open");
-                toggle.classList.remove("is-active");
-                body.classList.remove("menu-open");
-            }
-
-            toggle.addEventListener("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                menu.classList.contains("w--open") ? closeMenu() : openMenu();
-            });
-
-            if (closeBtn) {
-                closeBtn.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeMenu();
-                });
-            }
-
-            document.addEventListener("click", function (e) {
-                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                    closeMenu();
-                }
-            });
-
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape") closeMenu();
-            });
-        });
-    </script>
-
-
-
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        const section = document.querySelector(".hero-transform");
-        const heroMedia = document.getElementById("heroMedia");
-        const finalMediaSlot = document.getElementById("finalMediaSlot");
-        const textWrap = document.getElementById("textWrap");
-
-        function getDelta() {
-            const mediaRect = heroMedia.getBoundingClientRect();
-            const slotRect = finalMediaSlot.getBoundingClientRect();
-
-            const mediaCenterX = mediaRect.left + mediaRect.width / 2;
-            const mediaCenterY = mediaRect.top + mediaRect.height / 2;
-
-            const slotCenterX = slotRect.left + slotRect.width / 2;
-            const slotCenterY = slotRect.top + slotRect.height / 2;
-
-            return {
-                x: slotCenterX - mediaCenterX,
-                y: slotCenterY - mediaCenterY,
-                scaleX: slotRect.width / mediaRect.width,
-                scaleY: slotRect.height / mediaRect.height
-            };
-        }
-
-        function resetAllScrollTriggers() {
-            ScrollTrigger.getAll().forEach((st) => st.kill());
-            gsap.killTweensOf([heroMedia, textWrap, finalMediaSlot]);
-        }
-
-        function buildAnimation() {
-            resetAllScrollTriggers();
-
-            const isDesktop = window.innerWidth > 1024;
-
-            if (!isDesktop) {
-                // mobile/tablet par animation off
-                gsap.set(heroMedia, {
-                    clearProps: "all",
-                    position: "relative",
-                    left: "auto",
-                    top: "auto",
-                    x: 0,
-                    y: 0,
-                    xPercent: 0,
-                    yPercent: 0,
-                    scaleX: 1,
-                    scaleY: 1,
-                    width: "100%",
-                    height: "auto",
-                    aspectRatio: "1.72 / 1",
-                    borderRadius: 0
-                });
-
-                gsap.set(finalMediaSlot, {
-                    opacity: 0,
-                    display: "none"
-                });
-
-                gsap.set(textWrap, {
-                    opacity: 1,
-                    y: 0
-                });
-
-                return;
-            }
-
-            // desktop animation on
-            gsap.set(heroMedia, {
-                clearProps: "all",
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                xPercent: -50,
-                yPercent: -50,
-                x: 0,
-                y: 0,
-                scaleX: 1,
-                scaleY: 1,
-                width: "92vw",
-                height: "82vh"
-            });
-
-            gsap.set(textWrap, {
-                opacity: 0,
-                y: 90
-            });
-
-            gsap.set(finalMediaSlot, {
-                opacity: 0,
-                display: "block"
-            });
-
-            const delta = getDelta();
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top top",
-                    end: "+=180%",
-                    scrub: 1.2,
-                    pin: true,
-                    anticipatePin: 1
-                }
-            });
-
-            tl.to(heroMedia, {
-                xPercent: -50,
-                yPercent: -50,
-                x: delta.x,
-                y: delta.y,
-                scaleX: delta.scaleX,
-                scaleY: delta.scaleY,
-                ease: "power2.out",
-                duration: 1
-            }, 0);
-
-            tl.to(textWrap, {
-                opacity: 1,
-                y: 0,
-                ease: "expo.out",
-                duration: 0.45
-            }, 0.72);
-
-            tl.to(finalMediaSlot, {
-                opacity: 1,
-                ease: "none",
-                duration: 0.2
-            }, 0.78);
-        }
-
-        window.addEventListener("load", () => {
-            buildAnimation();
-            ScrollTrigger.refresh();
-        });
-
-        let resizeTimer;
-        window.addEventListener("resize", () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                buildAnimation();
-                ScrollTrigger.refresh();
-            }, 150);
-        });
-    </script>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        window.addEventListener("load", () => {
-            const text = document.querySelector(".moving-text");
-            const section = document.querySelector(".pin-section");
-            let masterTl;
-
-            function splitTextToChars(el) {
-                const original = el.dataset.text || el.textContent;
-                el.dataset.text = original;
-                el.innerHTML = "";
-
-                const frag = document.createDocumentFragment();
-
-                [...original].forEach((char) => {
-                    const span = document.createElement("span");
-                    span.className = char === " " ? "char space" : "char";
-                    span.textContent = char === " " ? "\u00A0" : char;
-                    frag.appendChild(span);
-                });
-
-                el.appendChild(frag);
-            }
-
-            function randomOffset() {
-                const direction = Math.random() > 0.5 ? 1 : -1;
-                return gsap.utils.random(50, 180) * direction;
-            }
-
-            function createAnimation() {
-                if (masterTl) masterTl.kill();
-
-                splitTextToChars(text);
-
-                const chars = text.querySelectorAll(".char");
-                const viewportWidth = window.innerWidth;
-                const textWidth = text.scrollWidth;
-
-                const startX = viewportWidth;
-                const endX = -textWidth;
-
-                gsap.set(text, { x: startX });
-
-                chars.forEach((char) => {
-                    if (!char.classList.contains("space")) {
-                        gsap.set(char, {
-                            y: randomOffset(),
-                            rotate: gsap.utils.random(-8, 8),
-                            opacity: 0
-                        });
-                    }
-                });
-
-                masterTl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top top",
-                        end: "+=" + (viewportWidth + textWidth + 1400),
-                        scrub: 1,
-                        pin: true,
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true
-                    }
-                });
-
-                masterTl.to(text, {
-                    x: endX,
-                    ease: "none",
-                    duration: 1
-                }, 0);
-
-                masterTl.to(chars, {
-                    y: 0,
-                    rotate: 0,
-                    opacity: 1,
-                    ease: "power3.out",
-                    stagger: {
-                        each: 0.018,
-                        from: "start"
-                    },
-                    duration: 0.22
-                }, 0.02);
-
-                ScrollTrigger.refresh();
-            }
-
-            createAnimation();
-
-            let resizeTimer;
-            window.addEventListener("resize", () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    createAnimation();
-                }, 150);
-            });
-        });
-    </script>
 
 
 </body>
