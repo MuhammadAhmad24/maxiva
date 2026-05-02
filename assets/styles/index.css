@@ -2610,7 +2610,7 @@ label {
   text-transform: none;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  font-size: 9rem;
+  font-size: 15vw;
   font-weight: 700;
   line-height: 13.2rem;
 }
@@ -2644,7 +2644,7 @@ label {
   height: 12.5rem;
   position: relative;
   top: 16px;
-  overflow: visible;
+  /* overflow: visible; */
 }
 
 .hero-loop.about-hero-loop.about_absolute.optpp {
@@ -3024,7 +3024,8 @@ label {
 }
 
 .brands-block {
-  width: 100%;
+  width: calc(100% - 40px);
+  overflow: hidden;
   margin-top: 96px;
 }
 
@@ -8714,7 +8715,7 @@ label {
     width: 260px;
     height: 150px;
     top: auto;
-    overflow: visible;
+    /* overflow: visible; */
   }
 
   .hero-loop.projects-video.hero-video-block {

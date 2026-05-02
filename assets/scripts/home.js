@@ -848,7 +848,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             scrollTrigger: {
                 trigger: ".cards-pin-section",
                 start: "top top",
-                end: () => "+=" + window.innerHeight * 3.2,
+                end: () => "+=" + window.innerHeight * 2.2,
                 scrub: 1.15,
                 pin: true,
                 anticipatePin: 1,
